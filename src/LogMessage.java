@@ -12,18 +12,23 @@ public class LogMessage {
         if (description.indexOf(keyword) == -1) {
             return false;
         }
-        boolean pass = false;
         if (description.equals(keyword)) {
-            pass = true;
+            return true;
         }
-        
+        if (description.substring(keyword.length()).equals(" ")) {
+            return true;
+        }
+        if (description.substring(description.length() - keyword.length()).equals(" ")) {
+            return true;
+        }
+        return false;
+    }
 
-        if (description.indexOf(keyword) == 0) {
-            pass = true;
-        }
-        else if (keyword.equals(description.substring(description.length() - keyword.length()))) {
-            pass = true;
-        }
-        else if ()
+    public String getMachineId() {
+        return machineId;
+    }
+
+    public String getDescription() {
+        return description;
     }
 }
